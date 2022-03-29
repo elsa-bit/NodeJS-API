@@ -1,0 +1,19 @@
+### 
+# LISTE TOUT LES PRODUITS
+GET http://localhost:3000/products HTTP/1.1
+
+###
+# RECUPERE LE PRODUIT AVEC
+GET http://localhost:3000/products/pomme HTTP/1.1
+
+###
+# POST add a new product
+POST http://localhost:3000/products HTTP/1.1
+content-type: application/json
+
+{
+    "name": "framboise",
+    "quantity": 25
+}
+
+
