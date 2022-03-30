@@ -1,10 +1,13 @@
 import express from "express"
 import router from "./route.mjs";
+import bodyParser from "body-parser";
+import morgan from "morgan";
 
 const app = express();
 const port = 3000;
 
-app.use(express.json({ extended: false }));
+app.use(bodyParser.json());
+//app.use(morgan('tiny'));
 app.use(router)
 
 
