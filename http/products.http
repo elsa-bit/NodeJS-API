@@ -12,8 +12,8 @@ POST http://localhost:3000/products HTTP/1.1
 content-type: application/json
 
 {
-    "name": "framboise",
-    "quantity": 25
+    "name": "banane",
+    "quantity": 2
 }
 
 

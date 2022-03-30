@@ -1,33 +1,25 @@
 import { add, getAll, getByName, update, remove } from "./products.mjs";
+import express from "express";
+var router = express.Router();
 
-const route = async (request, response) => {
-    if(request.method === "POST") {
-        const body = await postMethod(request);
-        add(body.name, body.quantity) 
-        return "produit ajouté"
-    } else {
-        let getUrl = request.url.split("/")
-        if(getUrl[1] === "products") {
-            if(getUrl[2]){
-                return JSON.stringify(getByName(getUrl[2]));
-            } else {
-                return JSON.stringify(getAll());
-            }
-        }
-    }
-}
+// define the getByName route
+router.get('/products/:name', function(req, res) {
+    const name = req.params.name
+    const result = JSON.stringify(getByName(name));
+    res.send(result);
+});
 
-const postMethod = (request) => {
-    let body = ""
+// define the getAll route
+router.get('/products', function(req, res) {
+    const result =  JSON.stringify(getAll());
+    res.send(result);
+});
 
-    return new Promise((resolve, reject) => {
-        request.on("data", (chunk) => {
-            body += chunk.toString();
-        });
-        request.on("end", () => {
-            return resolve(JSON.parse(body));
-        });
-    });
-};
 
-export default route;
+// define the add route
+router.post('/products', (req, res) => {
+    const{name, quantity } = req.body;
+    res.send(add(name, quantity));
+});
+
+export default router;

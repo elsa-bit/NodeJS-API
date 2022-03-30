@@ -13,6 +13,14 @@
   },
   {
     "name": "framboise",
-    "quantity": 25
+    "quantity": 75
+  },
+  {
+    "name": "peche",
+    "quantity": 9
+  },
+  {
+    "name": "banane",
+    "quantity": 2
   }
 ]
