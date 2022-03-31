@@ -5,6 +5,7 @@ const getProducts = () => {
     const url = 'http://localhost:3000/products';
     axios.get(url)
         .then(function (response) {
+            console.log("# getProducts : ");
             console.log(response.data);
         }).catch(function(error) {
         console.log(error);
@@ -20,9 +21,10 @@ const addProduct = () => {
     }
     axios.post(url, info)
         .then(function () {
+            console.log("\n# addProduct ");
             const name = info.name;
             const quantity = info.quantity;
-            console.log(`${quantity} ${name} ajouté(e)(s)`);
+            console.log(`${quantity} ${name} ajouté(e)(s) \n`);
         }).catch(function (error) {
             console.log(error);
         });
@@ -33,6 +35,7 @@ const getProductsAsync = async () => {
     const url = 'http://localhost:3000/products';
     await axios.get(url)
         .then(function (response) {
+            console.log("# getProductsAsync : ");
             console.log(response.data);
         }).catch(function (error) {
             console.log(error);
