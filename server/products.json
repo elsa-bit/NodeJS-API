@@ -17,10 +17,14 @@
   },
   {
     "name": "peche",
-    "quantity": 9
+    "quantity": 11
   },
   {
     "name": "banane",
     "quantity": 1
+  },
+  {
+    "name": "poire",
+    "quantity": 6
   }
 ]
