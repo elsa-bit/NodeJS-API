@@ -1,0 +1,7 @@
+{
+    "name": "esgi---formation-api",
+    "version": "1.0.0",
+    "script": {
+        "postinstall": "npm install --prefix server"
+    } 
+}
