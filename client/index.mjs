@@ -6,20 +6,26 @@ const getProducts = () => {
     axios.get(url)
         .then(function (response) {
             console.log(response.data);
-        })
+        }).catch(function(error) {
+        console.log(error);
+        });
 };
 
 //ADD PRODUCT
 const addProduct = () => {
     const url = 'http://localhost:3000/products';
     const info = {
-        name: 'peche',
-        quantity: 2
+        name: 'poire',
+        quantity: 4
     }
     axios.post(url, info)
-        .then(function (response) {
-            console.log(response.data);
-        })
+        .then(function () {
+            const name = info.name;
+            const quantity = info.quantity;
+            console.log(`${quantity} ${name} ajouté(e)(s)`);
+        }).catch(function (error) {
+            console.log(error);
+        });
 };
 
 //GET PRODUCT ASYNC
@@ -28,16 +34,15 @@ const getProductsAsync = async () => {
     await axios.get(url)
         .then(function (response) {
             console.log(response.data);
-        })
+        }).catch(function (error) {
+            console.log(error);
+        });
 };
 
 
-getProducts();
-addProduct();
-getProductsAsync();
 
-/*
-(() => {
-    console.log("iife");
+(async () => {
+    getProducts();
+    addProduct();
+    getProductsAsync();
 })()
-*/
