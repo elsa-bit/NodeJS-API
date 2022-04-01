@@ -3,6 +3,7 @@ import axios from "axios";
 //GET PRODUCT
 const getProducts = () => {
     const url = 'http://localhost:3000/products';
+    /*
     axios.get(url)
         .then(function (response) {
             console.log("# getProducts : ");
@@ -10,6 +11,14 @@ const getProducts = () => {
         }).catch(function(error) {
         console.log(error);
         });
+    */
+    return new Promise ((resolve, reject) => {
+        axios.get(url).then(function (response) {
+            resolve(response.data);
+        }).catch(function (error) {
+            reject(error);
+        });
+    })
 };
 
 //ADD PRODUCT
@@ -45,7 +54,10 @@ const getProductsAsync = async () => {
 
 
 (async () => {
-    getProducts();
+    await getProducts().then((value) => {
+        console.log("# getProducts : ");
+        console.log(value);
+    });
     addProduct();
     getProductsAsync();
 })()
