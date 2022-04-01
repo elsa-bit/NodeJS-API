@@ -28,4 +28,10 @@ router.delete('/products/:name', function (req, res, next) {
   res.send(remove(name, quantity))
 })
 
+// define the auth route
+router.post('/auth', (req, res) => {
+  const { name, password } = req.body
+  res.send(auth(name, password))
+})
+
 export default router
