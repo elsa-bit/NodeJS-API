@@ -1,4 +1,5 @@
 import { add, getAll, getByName, remove } from './products.mjs'
+import { auth } from './auth/index.mjs'
 import express from 'express'
 const router = express.Router()
 
