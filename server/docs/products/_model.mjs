@@ -14,7 +14,7 @@ export default {
             },
         },
     },
-    
+
     products: {
         type: "object",
         additionalProperties: { $ref: "#/components/schemas/product" },
